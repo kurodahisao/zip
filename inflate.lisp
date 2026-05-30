@@ -124,9 +124,9 @@ that describe the custome huffman tree are themselves huffman coded.
 	(buffer (make-array (* 32 1024) :element-type '(unsigned-byte 8)))
 	(end 0))
     (loop
-      (if* (null (setq end (process-deflate-block br op buffer end)))
-	 then ; last block, we're all done
-	      (return)))))
+      (if (null (setq end (process-deflate-block br op buffer end)))
+	  ; last block, we're all done
+	  (return)))))
 
 
 
